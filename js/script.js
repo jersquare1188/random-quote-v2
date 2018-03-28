@@ -6,7 +6,7 @@ setInterval(function () {
 	printQuote();
 }, 180000); // every 30 seconds
 
-var quotes = [
+let quotes = [
 		{
 			quote: 'My home is in Heaven. I\'m just traveling through this world.',
 			source: 'Billy Graham',
@@ -58,11 +58,11 @@ var quotes = [
 		}
 ];
 
-var previousRandomNumber;
+let previousRandomNumber;
 
 function getRandomQuote() {
 	// get random index of quotes array
-	var randomNumber = Math.floor(Math.random() * quotes.length);
+	let randomNumber = Math.floor(Math.random() * quotes.length);
 
 	// it's best if we don't display the same one twice in row, so we'll continue to generate a random number until it's new
 	while (randomNumber == previousRandomNumber) {
@@ -75,8 +75,8 @@ function getRandomQuote() {
 }
 
 function printQuote() {
-	var quote = getRandomQuote();
-	var printedQuote = '<p class="quote">' + quote.quote + '</p><p class="source">' + quote.source;
+	let quote = getRandomQuote();
+	let printedQuote = '<p class="quote">' + quote.quote + '</p><p class="source">' + quote.source;
 
 	// check if quote citation exists and if it does we'll include it
 	if (quote.citation !== '') printedQuote += ' <span class="citation">' + quote.citation + '</span>';
@@ -93,6 +93,6 @@ function printQuote() {
 }
 
 function changeBackgroundColor() {
-	var randomColor = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+	let randomColor = "#000000".replace(/0/g, () => (~~(Math.random()*16)).toString(16));
 	document.body.style.background = randomColor;
 }
